@@ -36,6 +36,43 @@
     transform: rotate(360deg);
   }
 } */
+div.sidebar {
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+
+ul.dashbord-list-item {
+  padding-left: 10px;
+  height: 100vh;
+}
+
+ul.dashbord-list-item li {
+  border-bottom: 0.2px solid #999;
+  padding: 10px 0;
+  cursor: pointer;
+  list-style: none;
+  padding-left: 20px;
+}
+
+ul.dashbord-list-item li:first-child {
+  border-top: 0.2px solid #999;
+}
+
+ul.dashbord-list-item li:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+ul.dashbord-list-item li a {
+  text-decoration: none;
+  color: #fcc;
+}
+
+.admin-image {
+  height: 60px !important;
+  margin-top: 20px;
+}
 
 footer {
   position: absolute;

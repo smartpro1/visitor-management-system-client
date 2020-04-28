@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import { registerVisitor } from "../../actions/adminActions";
+import Sidebar from "../Layout/Sidebar";
 
 class RegisterVisitor extends Component {
   constructor() {
@@ -66,9 +67,12 @@ class RegisterVisitor extends Component {
     const { errors } = this.props;
 
     return (
-      <div className="container mt-5">
+      <div>
         <div className="row">
-          <div className="col-md-8 m-auto">
+          <div className="col-md-2 bg-info sidebar">
+            <Sidebar />
+          </div>
+          <div className="col-md-8 mx-auto">
             <h1 className="display-4 text-center my-4">Register Visitor</h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-row">

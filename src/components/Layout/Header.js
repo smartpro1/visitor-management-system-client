@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-md bg-primary navbar-dark">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand text-center" href="#">
           Visitor Management System
         </a>
 
@@ -21,21 +21,11 @@ class Header extends Component {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse " id="collapsibleNavbar">
+          <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/register-visitor">
-                RegisterVisitor
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/register-admin">
-                Admin
+              <Link className="nav-link" to="/logout">
+                Logout
               </Link>
             </li>
           </ul>

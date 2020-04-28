@@ -1,9 +1,24 @@
 import axios from "axios";
-import { GET_ERRORS, GET_VISITORS } from "./types";
+import jwtDecode from "jwt-decode";
+import { GET_ERRORS, GET_VISITORS, LOGIN_ADMIN } from "./types";
+import { setJwtToken } from "../securityUtils/SetJwtToken";
 
 export const loginAdmin = (adminCredentials, history) => async (dispatch) => {
   try {
-    await axios.post(`/api/v1/admin/login`, adminCredentials);
+    const res = await axios.post(`/api/v1/admin/login`, adminCredentials);
+    console.log(res);
+    //extract token from res.data
+    const { token } = res.data;
+    // store the token in local storage
+    localStorage.setItem("jwtToken", token);
+    // set the token in the header using a function defined somewhere else
+    setJwtToken(token);
+    // decode token on React side
+    const decodedJwtToken = jwtDecode(token);
+    dispatch({
+      type: LOGIN_ADMIN,
+      payload: decodedJwtToken,
+    });
     history.push("/dashboard");
   } catch (err) {
     dispatch({
@@ -11,6 +26,16 @@ export const loginAdmin = (adminCredentials, history) => async (dispatch) => {
       payload: err.response.data,
     });
   }
+};
+
+export const logoutAdmin = () => (dispatch) => {
+  // When the person logs out, we remove jwt from localStorage as well as the header
+  localStorage.removeItem("jwtToken");
+  setJwtToken(false);
+  dispatch({
+    type: LOGIN_ADMIN,
+    payload: {},
+  });
 };
 
 export const registerAdmin = (adminCredentials, history) => async (
@@ -32,7 +57,7 @@ export const registerVisitor = (visitorDetails, history) => async (
 ) => {
   try {
     const tag = await axios.post(
-      `/api/v1/visitor/register-visitor`,
+      `/api/v1/visitors/register-visitor`,
       visitorDetails
     );
     console.log(tag);
@@ -52,6 +77,22 @@ export const fetchVisitors = () => async (dispatch) => {
       type: GET_VISITORS,
       payload: res.data,
     });
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
+  }
+};
+
+export const signoutVisitor = (tag, history) => async (dispatch) => {
+  try {
+    await axios.post(`/api/v1/visitors/${tag}`);
+    dispatch({
+      type: GET_ERRORS,
+      payload: {},
+    });
+    history.push("/");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
