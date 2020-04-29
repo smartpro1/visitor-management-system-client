@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutAdmin } from "../../actions/adminActions";
 
 class Header extends Component {
+  logout = () => {
+    console.log("got here");
+    this.props.logoutAdmin();
+  };
+
   render() {
     return (
       <nav className="navbar navbar-expand-md bg-primary navbar-dark">
@@ -23,8 +31,8 @@ class Header extends Component {
 
         <div className="collapse navbar-collapse " id="collapsibleNavbar">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/logout">
+            <li className="nav-item" onClick={this.logout}>
+              <Link className="nav-link" to="">
                 Logout
               </Link>
             </li>
@@ -35,4 +43,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  logoutAdmin: PropTypes.func.isRequired,
+  admin: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  admin: state.login,
+});
+
+export default connect(mapStateToProps, { logoutAdmin })(Header);

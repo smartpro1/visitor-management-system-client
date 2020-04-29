@@ -1,6 +1,11 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import { GET_ERRORS, GET_VISITORS, LOGIN_ADMIN } from "./types";
+import {
+  GET_ERRORS,
+  GET_VISITORS,
+  LOGIN_ADMIN,
+  GET_VISITORS_LOGS,
+} from "./types";
 import { setJwtToken } from "../securityUtils/SetJwtToken";
 
 export const loginAdmin = (adminCredentials, history) => async (dispatch) => {
@@ -36,6 +41,7 @@ export const logoutAdmin = () => (dispatch) => {
     type: LOGIN_ADMIN,
     payload: {},
   });
+  window.location.href = "/";
 };
 
 export const registerAdmin = (adminCredentials, history) => async (
@@ -72,7 +78,7 @@ export const registerVisitor = (visitorDetails, history) => async (
 
 export const fetchVisitors = () => async (dispatch) => {
   try {
-    const res = await axios.post(`/api/v1/visitors`);
+    const res = await axios.get(`/api/v1/visitors/registered`);
     dispatch({
       type: GET_VISITORS,
       payload: res.data,
@@ -85,18 +91,34 @@ export const fetchVisitors = () => async (dispatch) => {
   }
 };
 
+export const fetchVisitorsLog = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/v1/visitors/logs`);
+    dispatch({
+      type: GET_VISITORS_LOGS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response,
+    });
+  }
+};
+
 export const signoutVisitor = (tag, history) => async (dispatch) => {
   try {
-    await axios.post(`/api/v1/visitors/${tag}`);
+    await axios.post(`/api/v1/visitors/logout/${tag}`);
     dispatch({
       type: GET_ERRORS,
       payload: {},
     });
     history.push("/");
   } catch (err) {
+    console.log(err);
     dispatch({
       type: GET_ERRORS,
-      payload: err.response.data,
+      payload: err,
     });
   }
 };

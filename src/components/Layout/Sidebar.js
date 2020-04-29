@@ -28,6 +28,9 @@ class Sidebar extends Component {
           <li>
             <a href="/registered-visitors">My Visitors</a>
           </li>
+          <li>
+            <a href="/visitors-log">My Visitors Log</a>
+          </li>
         </ul>
       </div>
     );

@@ -1,8 +1,43 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 import Sidebar from "../Layout/Sidebar";
+import { signoutVisitor } from "../../actions/adminActions";
 
 class SignoutVisitor extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      tag: "",
+      errors: "",
+    };
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.errors) {
+      this.setState({
+        errors: "invalid visitor tag",
+      });
+    }
+  };
+
+  handleOnChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    const { signoutVisitor, history } = this.props;
+    signoutVisitor(this.state.tag, history);
+  };
+
   render() {
+    const { tag, errors } = this.state;
+
     return (
       <div>
         <div className="row">
@@ -11,14 +46,23 @@ class SignoutVisitor extends Component {
           </div>
           <div className="col-md-4 mx-auto">
             <h1 className="display-4 text-center my-4">Enter Visitor's Tag</h1>
-            <form>
+            <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input
                   type="text"
                   placeholder="Enter username correct tag id e.g TAG243"
                   name="tag"
-                  className="form-control form-control-lg"
+                  className={classnames("form-control form-control-lg", {
+                    "is-invalid": errors,
+                  })}
+                  value={tag}
+                  onChange={this.handleOnChange}
                 />
+                {errors && (
+                  <div className="invalid-feedback">
+                    invalid visitor tag or visitor
+                  </div>
+                )}
               </div>
               <input
                 type="submit"
@@ -32,5 +76,11 @@ class SignoutVisitor extends Component {
     );
   }
 }
-
-export default SignoutVisitor;
+SignoutVisitor.propTypes = {
+  signoutVisitor: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  errors: state.errors,
+});
+export default connect(mapStateToProps, { signoutVisitor })(SignoutVisitor);

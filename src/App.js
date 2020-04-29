@@ -18,6 +18,7 @@ import { LOGIN_ADMIN } from "./actions/types";
 import { logoutAdmin } from "./actions/adminActions";
 import store from "./store";
 import SignoutVisitor from "./components/Admin/SignoutVisitor";
+import MyVisitorsLogs from "./components/Admin/MyVisitorsLogs";
 
 const jwtToken = localStorage.jwtToken;
 if (jwtToken) {
@@ -37,27 +38,26 @@ if (jwtToken) {
 function App() {
   return (
     <Router>
-      <div>
-        <Header />
+      <Header />
 
-        {
-          // public Routes
-        }
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register-admin" component={RegisterAdmin} />
-        <Route
-          exact
-          path="/registered-visitors"
-          component={MyRegisteredVisitors}
-        />
-        <Route exact path="/signout-visitor" component={SignoutVisitor} />
-        <Route exact path="/register-visitor" component={RegisterVisitor} />
-        <Route exact path="/forgot-password" component={ForgotPassword} />
-        {/* <Route path="/reset" component={ResetPassword} />
-         */}
-      </div>
+      {
+        // public Routes
+      }
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register-admin" component={RegisterAdmin} />
+      <Route
+        exact
+        path="/registered-visitors"
+        component={MyRegisteredVisitors}
+      />
+      <Route exact path="/visitors-log" component={MyVisitorsLogs} />
+      <Route exact path="/signout-visitor" component={SignoutVisitor} />
+      <Route exact path="/register-visitor" component={RegisterVisitor} />
+      <Route exact path="/forgot-password" component={ForgotPassword} />
+      {/* <Route path="/reset" component={ResetPassword} />
+       */}
     </Router>
   );
 }
