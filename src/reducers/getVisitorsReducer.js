@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const getVisitorsReducer = (state = initialState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case GET_VISITORS:
       return {
         ...state,

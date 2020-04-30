@@ -5,12 +5,6 @@ import Sidebar from "../Layout/Sidebar";
 import { fetchVisitorsLog } from "../../actions/adminActions";
 
 class MyVisitorsLogs extends Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
-
   componentDidMount = () => {
     const { fetchVisitorsLog } = this.props;
     fetchVisitorsLog();
@@ -25,7 +19,7 @@ class MyVisitorsLogs extends Component {
         <td>{log.purpose}</td>
         <td>{log.tag}</td>
         <td>{log.timeIn}</td>
-        <td>{log.timeOut}</td>
+        <td>{log.timeOut || "visitor still active"}</td>
       </tr>
     ));
 

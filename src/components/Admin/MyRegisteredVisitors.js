@@ -1,8 +1,27 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
+import { fetchVisitors } from "../../actions/adminActions";
 
 class MyRegisteredVisitors extends Component {
+  componentDidMount = () => {
+    const { fetchVisitors } = this.props;
+    fetchVisitors();
+  };
+
   render() {
+    const { visitors } = this.props;
+    const loadVisitors = visitors.map((visitor) => (
+      <tr key={visitor.id}>
+        <td>{visitor.id}</td>
+        <td>{visitor.fullname}</td>
+        <td>{visitor.address}</td>
+        <td>{visitor.sex}</td>
+        <td>{visitor.created_At}</td>
+      </tr>
+    ));
+
     return (
       <div className="row">
         <div className="col-md-2 bg-info sidebar">
@@ -13,40 +32,14 @@ class MyRegisteredVisitors extends Component {
           <table className="table table-hover ">
             <thead className="thead-light">
               <tr>
-                <th>Fullname</th>
-                <th>Whom To See</th>
-                <th>Purpose</th>
-                <th>Tag</th>
-                <th>Date in</th>
-                <th>Date out</th>
+                <th>id</th>
+                <th>fullname</th>
+                <th>address</th>
+                <th>sex</th>
+                <th>Date Created</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>John Doe</td>
-                <td>Mr. Etienne</td>
-                <td>official</td>
-                <td>TAG102</td>
-                <td>23/04/20</td>
-                <td>23/04/20</td>
-              </tr>
-              <tr>
-                <td>John Doe</td>
-                <td>Mr. Etienne</td>
-                <td>official</td>
-                <td>TAG132</td>
-                <td>23/04/20</td>
-                <td>23/04/20</td>
-              </tr>
-              <tr>
-                <td>John Doe</td>
-                <td>Mr. Etienne</td>
-                <td>official</td>
-                <td>TAG453</td>
-                <td>23/04/20</td>
-                <td>23/04/20</td>
-              </tr>
-            </tbody>
+            <tbody>{loadVisitors}</tbody>
           </table>
         </div>
       </div>
@@ -54,4 +47,14 @@ class MyRegisteredVisitors extends Component {
   }
 }
 
-export default MyRegisteredVisitors;
+MyRegisteredVisitors.propTypes = {
+  visitors: PropTypes.array.isRequired,
+  fetchVisitors: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({
+  visitors: state.visitors.visitors,
+});
+
+export default connect(mapStateToProps, { fetchVisitors })(
+  MyRegisteredVisitors
+);

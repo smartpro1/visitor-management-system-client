@@ -79,6 +79,7 @@ export const registerVisitor = (visitorDetails, history) => async (
 export const fetchVisitors = () => async (dispatch) => {
   try {
     const res = await axios.get(`/api/v1/visitors/registered`);
+
     dispatch({
       type: GET_VISITORS,
       payload: res.data,
