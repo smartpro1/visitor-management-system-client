@@ -12,6 +12,22 @@ class MyVisitorsLogs extends Component {
 
   render() {
     const { visitorsLogs } = this.props;
+
+    if (visitorsLogs.length === 0) {
+      return (
+        <div className="row">
+          <div className="col-md-2 bg-info sidebar">
+            <Sidebar />
+          </div>
+          <div
+            className="container alert alert-info text-center mt-5 col-md-4 info-cont alert-dismissible fade show"
+            role="alert"
+          >
+            You have no logged visitor yet.
+          </div>
+        </div>
+      );
+    }
     const loadLogs = visitorsLogs.map((log) => (
       <tr key={log.id}>
         <td>{log.id}</td>

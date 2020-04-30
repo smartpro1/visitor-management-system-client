@@ -12,6 +12,22 @@ class MyRegisteredVisitors extends Component {
 
   render() {
     const { visitors } = this.props;
+
+    if (visitors.length === 0) {
+      return (
+        <div className="row">
+          <div className="col-md-2 bg-info sidebar">
+            <Sidebar />
+          </div>
+          <div
+            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
+            role="alert"
+          >
+            You have no registered visitor yet.
+          </div>
+        </div>
+      );
+    }
     const loadVisitors = visitors.map((visitor) => (
       <tr key={visitor.id}>
         <td>{visitor.id}</td>

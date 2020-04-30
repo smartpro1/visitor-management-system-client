@@ -39,10 +39,10 @@ class Sidebar extends Component {
             <a href="/visitors-log">My Visitors Log</a>
           </li>
           <li>
-            <a href="/registered-visitor">My Visitor</a>
+            <a href="/track-visitor">Track Visitor</a>
           </li>
           <li>
-            <a href="/visitor-log">My Visitor Log</a>
+            <a href="/visitor-log">Track Visitors</a>
           </li>
           <li>
             <a href="/charts">Chart</a>

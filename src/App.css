@@ -40,11 +40,15 @@ div.sidebar {
   margin: 0;
   padding: 0;
   background: #000;
+  height: 100vh;
 }
-
+div.info-cont {
+  height: 50px;
+  text-align: center;
+  margin-top: 200px !important;
+}
 ul.dashbord-list-item {
   padding-left: 10px;
-  height: 100vh;
 }
 
 ul.dashbord-list-item li {
@@ -72,6 +76,11 @@ ul.dashbord-list-item li a {
 .admin-image {
   height: 60px !important;
   margin-top: 20px;
+}
+
+.admin-image:hover {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 footer {

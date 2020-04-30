@@ -20,8 +20,12 @@ import store from "./store";
 import SignoutVisitor from "./components/Admin/SignoutVisitor";
 import MyVisitorsLogs from "./components/Admin/MyVisitorsLogs";
 import SecuredRoute from "./securityUtils/SecuredRoute";
+import TrackVisitor from "./components/Admin/TrackVisitor";
+import TrackedVisitor from "./components/Admin/TrackedVisitor";
 
 const jwtToken = localStorage.jwtToken;
+console.log(jwtToken);
+
 if (jwtToken) {
   setJwtToken(jwtToken);
   const decodedToken = jwtDecode(jwtToken);
@@ -31,7 +35,7 @@ if (jwtToken) {
   });
 
   const currentTime = Date.now() / 1000;
-  if (decodedToken < currentTime) {
+  if (decodedToken.exp < currentTime) {
     store.dispatch(logoutAdmin());
     window.location.href = "/";
   }
@@ -67,6 +71,13 @@ function App() {
           exact
           path="/register-visitor"
           component={RegisterVisitor}
+        />
+        <SecuredRoute exact path="/track-visitor" component={TrackVisitor} />
+
+        <SecuredRoute
+          exact
+          path="/tracked-visitor"
+          component={TrackedVisitor}
         />
         <SecuredRoute
           exact
