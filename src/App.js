@@ -1,7 +1,7 @@
 import React from "react";
 //import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import Landing from "./components/Layout/Landing";
 import Footer from "./components/Layout/Footer";
@@ -19,6 +19,7 @@ import { logoutAdmin } from "./actions/adminActions";
 import store from "./store";
 import SignoutVisitor from "./components/Admin/SignoutVisitor";
 import MyVisitorsLogs from "./components/Admin/MyVisitorsLogs";
+import SecuredRoute from "./securityUtils/SecuredRoute";
 
 const jwtToken = localStorage.jwtToken;
 if (jwtToken) {
@@ -41,23 +42,40 @@ function App() {
       <Header />
 
       {
-        // public Routes
+        // public Route
       }
       <Route exact path="/" component={Landing} />
-      <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register-admin" component={RegisterAdmin} />
-      <Route
-        exact
-        path="/registered-visitors"
-        component={MyRegisteredVisitors}
-      />
-      <Route exact path="/visitors-log" component={MyVisitorsLogs} />
-      <Route exact path="/signout-visitor" component={SignoutVisitor} />
-      <Route exact path="/register-visitor" component={RegisterVisitor} />
-      <Route exact path="/forgot-password" component={ForgotPassword} />
-      {/* <Route path="/reset" component={ResetPassword} />
-       */}
+      {
+        // private Routes
+      }
+      <Switch>
+        <SecuredRoute exact path="/dashboard" component={Dashboard} />
+        <SecuredRoute
+          exact
+          path="/registered-visitors"
+          component={MyRegisteredVisitors}
+        />
+        <SecuredRoute exact path="/visitors-log" component={MyVisitorsLogs} />
+        <SecuredRoute
+          exact
+          path="/signout-visitor"
+          component={SignoutVisitor}
+        />
+        <SecuredRoute
+          exact
+          path="/register-visitor"
+          component={RegisterVisitor}
+        />
+        <SecuredRoute
+          exact
+          path="/forgot-password"
+          component={ForgotPassword}
+        />
+        {/* <Route path="/reset" component={ResetPassword} />
+         */}
+      </Switch>
     </Router>
   );
 }

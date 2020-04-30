@@ -48,7 +48,7 @@ export const registerAdmin = (adminCredentials, history) => async (
   dispatch
 ) => {
   try {
-    axios.post(`/api/v1/admin/register`, adminCredentials);
+    await axios.post(`/api/v1/admin/register`, adminCredentials);
     history.push("/login");
   } catch (err) {
     dispatch({
