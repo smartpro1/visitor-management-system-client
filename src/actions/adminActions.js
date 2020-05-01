@@ -126,7 +126,7 @@ export const signoutVisitor = (tag, history) => async (dispatch) => {
 
 export const trackVisitor = (phone, history) => async (dispatch) => {
   try {
-    const res = await axios.post(`/api/v1/visitors/${phone}`);
+    const res = await axios.get(`/api/v1/visitors/${phone}`);
     dispatch({
       type: TRACK_VISITOR,
       payload: res,

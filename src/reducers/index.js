@@ -10,5 +10,5 @@ export default combineReducers({
   visitors: getVisitorsReducer,
   login: loginAdminReducer,
   logs: getVisitorsLogsReducer,
-  trackedVisitor: trackVisitorReducer,
+  trackedVisitors: trackVisitorReducer,
 });
