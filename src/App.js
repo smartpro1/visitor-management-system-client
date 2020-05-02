@@ -22,6 +22,8 @@ import MyVisitorsLogs from "./components/Admin/MyVisitorsLogs";
 import SecuredRoute from "./securityUtils/SecuredRoute";
 import TrackVisitor from "./components/Admin/TrackVisitor";
 import TrackedVisitor from "./components/Admin/TrackedVisitor";
+import TrackVisitors from "./components/Admin/TrackVisitors";
+import TrackedVisitors from "./components/Admin/TrackedVisitors";
 
 const jwtToken = localStorage.jwtToken;
 console.log(jwtToken);
@@ -78,6 +80,12 @@ function App() {
           exact
           path="/tracked-visitor"
           component={TrackedVisitor}
+        />
+        <SecuredRoute exact path="/track-visitors" component={TrackVisitors} />
+        <SecuredRoute
+          exact
+          path="/tracked-visitors"
+          component={TrackedVisitors}
         />
         <SecuredRoute
           exact

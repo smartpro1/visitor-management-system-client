@@ -7,6 +7,22 @@ class TrackedVisitor extends Component {
   render() {
     const trackedVisitor = this.props.trackedVisitor.data;
 
+    if (trackedVisitor === "No result found") {
+      return (
+        <div className="row">
+          <div className="col-md-2 bg-info sidebar">
+            <Sidebar />
+          </div>
+          <div
+            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
+            role="alert"
+          >
+            {trackedVisitor}
+          </div>
+        </div>
+      );
+    }
+
     if (
       !trackedVisitor ||
       (Object.keys(trackedVisitor).length === 0 &&

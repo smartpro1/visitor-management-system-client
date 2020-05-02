@@ -42,7 +42,7 @@ class Sidebar extends Component {
             <a href="/track-visitor">Track Visitor</a>
           </li>
           <li>
-            <a href="/visitor-log">Track Visitors</a>
+            <a href="/track-visitors">Track Visitors</a>
           </li>
           <li>
             <a href="/charts">Chart</a>

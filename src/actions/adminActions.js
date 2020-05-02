@@ -6,6 +6,7 @@ import {
   LOGIN_ADMIN,
   GET_VISITORS_LOGS,
   TRACK_VISITOR,
+  TRACK_VISITORS,
 } from "./types";
 import { setJwtToken } from "../securityUtils/SetJwtToken";
 
@@ -132,6 +133,22 @@ export const trackVisitor = (phone, history) => async (dispatch) => {
       payload: res,
     });
     history.push("/tracked-visitor");
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err,
+    });
+  }
+};
+
+export const trackVisitors = (dateRange, history) => async (dispatch) => {
+  try {
+    const res = await axios.post(`/api/v1/visitors/track-visitors`, dateRange);
+    dispatch({
+      type: TRACK_VISITORS,
+      payload: res.data,
+    });
+    history.push("/tracked-visitors");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

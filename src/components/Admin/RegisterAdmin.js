@@ -56,13 +56,6 @@ class RegisterAdmin extends Component {
       errors,
     } = this.state;
 
-    // let errorText = "";
-    // let usernameOrEmailError = "";
-    // if (errors.error) {
-    //   errorText = "border-danger";
-    //   usernameOrEmailError = `${username} or ${email} already exists kindly choose another`;
-    // }
-
     return (
       <div className="container mt-5">
         <div className="row">

@@ -1,4 +1,4 @@
-import { TRACK_VISITOR } from "../actions/types";
+import { TRACK_VISITOR, TRACK_VISITORS } from "../actions/types";
 
 const initialState = {
   trackedVisitor: {},
@@ -12,6 +12,13 @@ export const trackVisitorReducer = (state = initialState, action) => {
         ...state,
         trackedVisitor: action.payload,
       };
+
+    case TRACK_VISITORS:
+      return {
+        ...state,
+        trackedVisitors: action.payload,
+      };
+
     default:
       return state;
   }
