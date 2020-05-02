@@ -32,7 +32,9 @@ class TrackVisitors extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     const { start, end } = this.state;
+
     const dateRange = { start, end };
+    console.log(dateRange);
     const { trackVisitors, history } = this.props;
     console.log(dateRange);
     trackVisitors(dateRange, history);
@@ -46,10 +48,10 @@ class TrackVisitors extends Component {
           <div className="col-md-2 bg-info sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-4 mx-auto">
-            <h1 className="display-4 text-center my-4">
+          <div className="col-md-6 mx-auto">
+            <p className="display-4 text-center my-4">
               Track visitors from a particular date to another
-            </h1>
+            </p>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input

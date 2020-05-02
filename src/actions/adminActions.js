@@ -130,7 +130,7 @@ export const trackVisitor = (phone, history) => async (dispatch) => {
     const res = await axios.get(`/api/v1/visitors/${phone}`);
     dispatch({
       type: TRACK_VISITOR,
-      payload: res,
+      payload: res.data,
     });
     history.push("/tracked-visitor");
   } catch (err) {
@@ -150,6 +150,7 @@ export const trackVisitors = (dateRange, history) => async (dispatch) => {
     });
     history.push("/tracked-visitors");
   } catch (err) {
+    console.log(err);
     dispatch({
       type: GET_ERRORS,
       payload: err,

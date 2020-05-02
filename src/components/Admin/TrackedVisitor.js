@@ -5,7 +5,8 @@ import Sidebar from "../Layout/Sidebar";
 
 class TrackedVisitor extends Component {
   render() {
-    const trackedVisitor = this.props.trackedVisitor.data;
+    //const trackedVisitor = this.props.trackedVisitor.data;
+    const trackedVisitor = this.props.trackedVisitor;
 
     if (trackedVisitor === "No result found") {
       return (
