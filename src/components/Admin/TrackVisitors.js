@@ -32,11 +32,8 @@ class TrackVisitors extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     const { start, end } = this.state;
-
     const dateRange = { start, end };
-    console.log(dateRange);
     const { trackVisitors, history } = this.props;
-    console.log(dateRange);
     trackVisitors(dateRange, history);
   };
 
@@ -60,6 +57,7 @@ class TrackVisitors extends Component {
                   className="form-control form-control-lg"
                   value={start}
                   onChange={this.handleOnChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -69,6 +67,7 @@ class TrackVisitors extends Component {
                   className="form-control form-control-lg"
                   value={end}
                   onChange={this.handleOnChange}
+                  required
                 />
               </div>
               <input

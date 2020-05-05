@@ -18,13 +18,15 @@ class Sidebar extends Component {
             alt="admin image"
             className="mx-auto d-block rounded-circle img-fluid admin-image"
           />
-          <p className="text-center text-white">
+          <p className="text-center admin-text">
             <strong>{adminText}</strong>
           </p>
         </div>
         <ul className="dashbord-list-item">
           <li>
-            <a href="/dashboard">Dashboard</a>
+            <a className="active" href="/dashboard">
+              Dashboard
+            </a>
           </li>
           <li>
             <a href="/register-visitor">Register Visitor</a>

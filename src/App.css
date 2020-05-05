@@ -63,14 +63,27 @@ ul.dashbord-list-item li:first-child {
   border-top: 0.2px solid #999;
 }
 
-ul.dashbord-list-item li:hover {
+p.admin-text {
+  color: tomato;
   opacity: 0.8;
-  color: #fff;
 }
 
-ul.dashbord-list-item li a {
+ul.dashbord-list-item li a:link,
+ul.dashbord-list-item li a:visited {
+  /*text-decoration: none;
+  color: #fff;
+  */
   text-decoration: none;
-  color: #fcc;
+  text-align: center;
+  color: white;
+}
+
+ul.dashbord-list-item li a.active {
+  color: #555;
+}
+
+ul.dashbord-list-item li a:hover:not(.active) {
+  color: tomato;
 }
 
 .admin-image {

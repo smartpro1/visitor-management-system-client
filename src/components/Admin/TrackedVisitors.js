@@ -2,53 +2,61 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
+import { trackVisitors } from "../../actions/adminActions";
+import TrackedDetails from "./TrackedDetails";
+import Pagination from "./Pagination";
 
 class TrackedVisitors extends Component {
+  state = {
+    posts: [],
+    currentPage: 1,
+    postsPerPage: 5,
+    loading: false,
+  };
+
+  componentDidMount() {
+    this.setState({ loading: true });
+    const details = this.props.trackedVisitors;
+    this.setState({
+      posts: details.content,
+    });
+    this.setState({ loading: false });
+  }
+
   render() {
-    const { trackedVisitors } = this.props;
-
-    if (trackedVisitors === "No result found") {
+    const { posts, postsPerPage, currentPage, loading } = this.state;
+    console.log(posts);
+    if (!posts || posts.length < 1) {
       return (
         <div className="row">
           <div className="col-md-2 bg-info sidebar">
             <Sidebar />
           </div>
-          <div
-            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
-            role="alert"
-          >
-            {trackedVisitors}
+          <div className="col-md-8 table-responsive mx-auto mt-3">
+            <h2 className="my-3 text-center">Tracked Visitors</h2>
+            <div className="Jumbotron  text-center">
+              <p className="alert alert-info"> No result found</p>
+            </div>
           </div>
         </div>
       );
     }
 
-    if (trackedVisitors.length === 0) {
-      return (
-        <div className="row">
-          <div className="col-md-2 bg-info sidebar">
-            <Sidebar />
-          </div>
-          <div
-            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
-            role="alert"
-          >
-            You have no tracked visitor yet.
-          </div>
-        </div>
-      );
-    }
+    const totalPages = Math.ceil(posts.length / postsPerPage);
 
-    const loadVisitorsDetails = trackedVisitors.map((visitor) => (
-      <tr key={visitor.id}>
-        <td>{visitor.id}</td>
-        <td>{visitor.whomToSee}</td>
-        <td>{visitor.tag}</td>
-        <td>{visitor.signedBy}</td>
-        <td>{visitor.timeIn}</td>
-        <td>{visitor.timeOut || "active"}</td>
-      </tr>
-    ));
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNum) => this.setState({ currentPage: pageNum });
+    const nextPage = () => {
+      if (currentPage + 1 > totalPages) return;
+      this.setState({ currentPage: currentPage + 1 });
+    };
+    const prevPage = () => {
+      if (currentPage - 1 < 1) return;
+      this.setState({ currentPage: currentPage - 1 });
+    };
 
     return (
       <div className="row">
@@ -57,20 +65,14 @@ class TrackedVisitors extends Component {
         </div>
         <div className="col-md-8 table-responsive mx-auto mt-3">
           <h2 className="my-3 text-center">Tracked Visitors</h2>
-
-          <table className="table table-hover ">
-            <thead className="thead-light">
-              <tr>
-                <th>Visitor id</th>
-                <th>Whom To See</th>
-                <th>Tag</th>
-                <th>Signed By</th>
-                <th>Date-Time In</th>
-                <th>Date-Time Out</th>
-              </tr>
-            </thead>
-            <tbody>{loadVisitorsDetails}</tbody>
-          </table>
+          <TrackedDetails posts={currentPosts} loading={loading} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
         </div>
       </div>
     );

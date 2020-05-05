@@ -150,7 +150,6 @@ export const trackVisitors = (dateRange, history) => async (dispatch) => {
     });
     history.push("/tracked-visitors");
   } catch (err) {
-    console.log(err);
     dispatch({
       type: GET_ERRORS,
       payload: err,
