@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import avatar from "../../assets/images/img2.png";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Sidebar extends Component {
@@ -22,32 +23,86 @@ class Sidebar extends Component {
             <strong>{adminText}</strong>
           </p>
         </div>
-        <ul className="dashbord-list-item">
-          <li>
-            <a className="active" href="/dashboard">
+        <ul className="dashbord-list-item ul-nav">
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/dashboard"
+            >
               Dashboard
-            </a>
+            </NavLink>
           </li>
-          <li>
-            <a href="/register-visitor">Register Visitor</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/register-visitor"
+            >
+              Register Visitor
+            </NavLink>
           </li>
-          <li>
-            <a href="/signout-visitor">Signout Visitor</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/signout-visitor"
+            >
+              Signout Visitor
+            </NavLink>
           </li>
-          <li>
-            <a href="/registered-visitors">My Visitors</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/registered-visitors"
+            >
+              My Visitors
+            </NavLink>
           </li>
-          <li>
-            <a href="/visitors-log">My Visitors Log</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/visitors-log"
+            >
+              My Visitors Log
+            </NavLink>
           </li>
-          <li>
-            <a href="/track-visitor">Track Visitor</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/track-visitor"
+            >
+              Track Visitor
+            </NavLink>
           </li>
-          <li>
-            <a href="/track-visitors">Track Visitors</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/track-visitors"
+            >
+              Track Visitors
+            </NavLink>
           </li>
-          <li>
-            <a href="/charts">Chart</a>
+          <li className="nav-item ul-nav-link">
+            <NavLink
+              className="sidebar-a"
+              exact
+              activeClassName="active"
+              to="/charts"
+            >
+              Chart
+            </NavLink>
           </li>
         </ul>
       </div>
