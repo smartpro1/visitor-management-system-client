@@ -36,7 +36,10 @@ class Landing extends Component {
         <div className="mt-5">
           <h3 className="display-3 mt-4">
             Hi, <em>{adminCredentials.fullname}</em>, hope your day has been
-            good so far!
+            good so far!{" "}
+            <Link to="/dashboard" className="btn  btn-primary">
+              {"<<"} Back to dashboard
+            </Link>
           </h3>
         </div>
       );

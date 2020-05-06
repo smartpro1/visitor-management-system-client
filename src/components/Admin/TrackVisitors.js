@@ -42,13 +42,13 @@ class TrackVisitors extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-6 mx-auto">
-            <p className="display-4 text-center my-4">
+          <div className="col-md-6 mx-auto mt-4">
+            <h4 className="text-center my-4">
               Track visitors from a particular date to another
-            </p>
+            </h4>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input

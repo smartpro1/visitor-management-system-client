@@ -40,13 +40,11 @@ class TrackVisitor extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-4 mx-auto">
-            <h1 className="display-4 text-center my-4">
-              Enter Visitor's Phone number
-            </h1>
+          <div className="container col-md-6 mt-4">
+            <h1 className="text-center my-4">Enter Visitor's Phone number</h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input
@@ -58,6 +56,7 @@ class TrackVisitor extends Component {
                   })}
                   value={phone}
                   onChange={this.handleOnChange}
+                  required
                 />
                 {errors && (
                   <div className="invalid-feedback">{errors.invalidPhone}</div>

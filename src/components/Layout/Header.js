@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutAdmin } from "../../actions/adminActions";
@@ -16,6 +16,88 @@ class Header extends Component {
     if (isValidToken && adminCredentials) {
       logText = (
         <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav sidebar-header-ul">
+            <li className="nav-item ul-nav-link">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/dashboard"
+              >
+                Dashboard
+              </NavLink>
+            </li>
+            <li className="nav-item ul-nav-link">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/register-visitor"
+              >
+                Register Visitor
+              </NavLink>
+            </li>
+            <li className="nav-item ">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/signout-visitor"
+              >
+                Signout Visitor
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/registered-visitors"
+              >
+                My Visitors
+              </NavLink>
+            </li>
+            <li className="nav-item ">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/visitors-log"
+              >
+                My Visitors Log
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/track-visitor"
+              >
+                Track Visitor
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/track-visitors"
+              >
+                Track Visitors
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="sidebar-a"
+                exact
+                activeClassName="active"
+                to="/charts"
+              >
+                Chart
+              </NavLink>
+            </li>
+          </ul>
           <li className="nav-item" onClick={this.logout}>
             <Link className="nav-link" to="">
               Logout
@@ -26,7 +108,7 @@ class Header extends Component {
     }
 
     return (
-      <nav className="navbar navbar-expand-md bg-primary navbar-dark">
+      <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
         <a className="navbar-brand text-center" href="#">
           Visitor Management System
         </a>

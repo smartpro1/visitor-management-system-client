@@ -11,7 +11,7 @@ class TrackedVisitor extends Component {
     if (trackedVisitor === "No result found") {
       return (
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
           <div

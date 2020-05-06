@@ -41,22 +41,23 @@ class SignoutVisitor extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-4 mx-auto">
-            <h1 className="display-4 text-center my-4">Enter Visitor's Tag</h1>
+          <div className="col-md-6 mx-auto mt-5">
+            <h1 className="text-center my-4">Enter Visitor's Tag</h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input
                   type="text"
-                  placeholder="Enter username correct tag id e.g TAG243"
+                  placeholder="Enter visitor's tag id e.g TAG243"
                   name="tag"
                   className={classnames("form-control form-control-lg", {
                     "is-invalid": errors,
                   })}
                   value={tag}
                   onChange={this.handleOnChange}
+                  required
                 />
                 {errors && (
                   <div className="invalid-feedback">

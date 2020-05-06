@@ -69,7 +69,7 @@ class RegisterVisitor extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
           <div className="col-md-8 mx-auto">
@@ -191,7 +191,6 @@ class RegisterVisitor extends Component {
                   name="assets"
                   value={assets}
                   onChange={this.handleOnChange}
-                  required
                 ></textarea>
               </div>
 

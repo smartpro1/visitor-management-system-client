@@ -29,7 +29,7 @@ class TrackedVisitors extends Component {
     if (!posts || posts.length < 1) {
       return (
         <div className="row">
-          <div className="col-md-2 bg-info sidebar">
+          <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
           <div className="col-md-8 table-responsive mx-auto mt-3">
