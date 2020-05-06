@@ -109,7 +109,7 @@ class Header extends Component {
 
     return (
       <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
-        <a className="navbar-brand text-center" href="#">
+        <a className="navbar-brand text-center" href="/" id="vms-logo">
           Visitor Management System
         </a>
 

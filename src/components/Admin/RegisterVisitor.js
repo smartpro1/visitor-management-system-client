@@ -67,7 +67,7 @@ class RegisterVisitor extends Component {
     const { errors } = this.props;
 
     return (
-      <div>
+      <div className="wrapper">
         <div className="row">
           <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
@@ -194,7 +194,7 @@ class RegisterVisitor extends Component {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary d-block my-4">
                 Register Visitor
               </button>
             </form>

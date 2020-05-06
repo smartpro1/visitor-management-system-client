@@ -95,6 +95,7 @@ function App() {
         {/* <Route path="/reset" component={ResetPassword} />
          */}
       </Switch>
+      <Footer />
     </Router>
   );
 }
