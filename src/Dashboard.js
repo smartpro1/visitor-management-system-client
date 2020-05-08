@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Sidebar from "./components/Layout/Sidebar";
+import Chart from "./components/Admin/Chart";
 
 class Dashboard extends Component {
   render() {
@@ -9,7 +10,9 @@ class Dashboard extends Component {
           <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-10">Lorem ipsum</div>
+          <div className=" col-md-6 m-auto my-5">
+            <Chart />
+          </div>
         </div>
       </div>
     );

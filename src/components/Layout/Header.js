@@ -11,7 +11,21 @@ class Header extends Component {
 
   render() {
     const { adminCredentials, isValidToken } = this.props.admin;
-    let logText = "";
+    let logText = (
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link" to="/register-admin">
+            Register
+          </Link>
+        </li>
+      </ul>
+    );
 
     if (isValidToken && adminCredentials) {
       logText = (

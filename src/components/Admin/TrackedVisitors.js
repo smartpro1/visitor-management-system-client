@@ -80,7 +80,7 @@ class TrackedVisitors extends Component {
 }
 
 TrackedVisitors.propTypes = {
-  trackedVisitors: PropTypes.array.isRequired,
+  trackedVisitors: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   trackedVisitors: state.trackedVisitors.trackedVisitors,

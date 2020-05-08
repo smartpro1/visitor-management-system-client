@@ -1,5 +1,4 @@
 import React from "react";
-//import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Layout/Header";
@@ -24,9 +23,9 @@ import TrackVisitor from "./components/Admin/TrackVisitor";
 import TrackedVisitor from "./components/Admin/TrackedVisitor";
 import TrackVisitors from "./components/Admin/TrackVisitors";
 import TrackedVisitors from "./components/Admin/TrackedVisitors";
+import Test from "./components/Admin/Test";
 
 const jwtToken = localStorage.jwtToken;
-console.log(jwtToken);
 
 if (jwtToken) {
   setJwtToken(jwtToken);
@@ -53,6 +52,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register-admin" component={RegisterAdmin} />
+      <Route exact path="/test" component={Test} />
       {
         // private Routes
       }

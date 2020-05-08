@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import Moment from "react-moment";
 import Sidebar from "../Layout/Sidebar";
+import { formatDate } from "./DateFormatter";
 import { fetchVisitors } from "../../actions/adminActions";
 
 class MyRegisteredVisitors extends Component {
@@ -20,7 +22,7 @@ class MyRegisteredVisitors extends Component {
             <Sidebar />
           </div>
           <div
-            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
+            className="container alert alert-info text-center mt-5 col-md-4 info-cont mt-4"
             role="alert"
           >
             You have no registered visitor yet.
@@ -34,7 +36,7 @@ class MyRegisteredVisitors extends Component {
         <td>{visitor.fullname}</td>
         <td>{visitor.address}</td>
         <td>{visitor.sex}</td>
-        <td>{visitor.created_At}</td>
+        <td>{formatDate(visitor.created_At)}</td>
       </tr>
     ));
 
@@ -44,7 +46,7 @@ class MyRegisteredVisitors extends Component {
           <Sidebar />
         </div>
         <div className="col-md-8 table-responsive mx-auto mt-3">
-          <h2 className="my-3 text-center">Registered Visitors</h2>
+          <h2 className="my-3 text-center">Registered Visitors...</h2>
           <table className="table table-hover ">
             <thead className="thead-light">
               <tr>

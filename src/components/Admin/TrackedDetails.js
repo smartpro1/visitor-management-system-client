@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { formatDate } from "./DateFormatter";
 
 export default class TrackedDetails extends Component {
   render() {
@@ -11,7 +12,7 @@ export default class TrackedDetails extends Component {
         <table className="table table-hover ">
           <thead className="thead-light">
             <tr>
-              <th>Visitor id</th>
+              <th>Visitor idzz</th>
               <th>Whom To See</th>
               <th>Tag</th>
               <th>Signed By</th>
@@ -26,8 +27,9 @@ export default class TrackedDetails extends Component {
                 <td>{post.whomToSee}</td>
                 <td>{post.tag}</td>
                 <td>{post.signedBy}</td>
-                <td>{post.timeIn}</td>
-                <td>{post.timeOut || "active"}</td>
+                <td>{formatDate(post.timeIn)}</td>
+
+                <td>{formatDate(post.timeOut || "active")}</td>
               </tr>
             ))}
           </tbody>

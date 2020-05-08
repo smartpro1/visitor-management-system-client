@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
+import { formatDate } from "./DateFormatter";
 import { fetchVisitorsLog } from "../../actions/adminActions";
 
 class MyVisitorsLogs extends Component {
@@ -35,7 +36,7 @@ class MyVisitorsLogs extends Component {
         <td>{log.purpose}</td>
         <td>{log.tag}</td>
         <td>{log.timeIn}</td>
-        <td>{log.timeOut || "visitor still active"}</td>
+        <td>{formatDate(log.timeOut || "active")}</td>
       </tr>
     ));
 
