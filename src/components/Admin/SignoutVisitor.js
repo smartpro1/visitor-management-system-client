@@ -61,7 +61,7 @@ class SignoutVisitor extends Component {
                 />
                 {errors && (
                   <div className="invalid-feedback">
-                    invalid visitor tag or visitor
+                    invalid tag or visitor still active
                   </div>
                 )}
               </div>

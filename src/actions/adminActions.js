@@ -64,12 +64,9 @@ export const registerVisitor = (visitorDetails, history) => async (
   dispatch
 ) => {
   try {
-    const tag = await axios.post(
-      `/api/v1/visitors/register-visitor`,
-      visitorDetails
-    );
-    console.log(tag);
-    history.push("/dashboard");
+    await axios.post(`/api/v1/visitors/register-visitor`, visitorDetails);
+
+    history.push("/visitors-log");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
@@ -116,7 +113,7 @@ export const signoutVisitor = (tag, history) => async (dispatch) => {
       type: GET_ERRORS,
       payload: {},
     });
-    history.push("/");
+    history.push("/visitors-log");
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

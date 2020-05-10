@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
+import { formatDate } from "./DateFormatter";
 
 class TrackedVisitor extends Component {
   render() {
-    //const trackedVisitor = this.props.trackedVisitor.data;
     const trackedVisitor = this.props.trackedVisitor;
 
     if (trackedVisitor === "No result found") {
@@ -52,8 +52,9 @@ class TrackedVisitor extends Component {
         <td>{visitorLog.whomToSee}</td>
         <td>{visitorLog.asset || "NIL"} </td>
         <td>{visitorLog.tag}</td>
-        <td>{visitorLog.timeIn}</td>
-        <td>{visitorLog.timeOut}</td>
+
+        <td>{formatDate(visitorLog.timeIn)}</td>
+        <td>{formatDate(visitorLog.timeOut)}</td>
       </tr>
     ));
 

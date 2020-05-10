@@ -23,7 +23,6 @@ import TrackVisitor from "./components/Admin/TrackVisitor";
 import TrackedVisitor from "./components/Admin/TrackedVisitor";
 import TrackVisitors from "./components/Admin/TrackVisitors";
 import TrackedVisitors from "./components/Admin/TrackedVisitors";
-import Test from "./components/Admin/Test";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -52,7 +51,7 @@ function App() {
       <Route exact path="/" component={Landing} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register-admin" component={RegisterAdmin} />
-      <Route exact path="/test" component={Test} />
+
       {
         // private Routes
       }

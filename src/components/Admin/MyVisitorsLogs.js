@@ -35,7 +35,7 @@ class MyVisitorsLogs extends Component {
         <td>{log.whomToSee}</td>
         <td>{log.purpose}</td>
         <td>{log.tag}</td>
-        <td>{log.timeIn}</td>
+        <td>{formatDate(log.timeIn)}</td>
         <td>{formatDate(log.timeOut || "active")}</td>
       </tr>
     ));

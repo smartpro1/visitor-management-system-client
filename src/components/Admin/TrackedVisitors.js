@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
-import { trackVisitors } from "../../actions/adminActions";
 import TrackedDetails from "./TrackedDetails";
 import Pagination from "./Pagination";
 
