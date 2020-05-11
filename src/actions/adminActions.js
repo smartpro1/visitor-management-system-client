@@ -153,3 +153,39 @@ export const trackVisitors = (dateRange, history) => async (dispatch) => {
     });
   }
 };
+
+// password reset
+
+export const forgotPassword = (email, history) => async (dispatch) => {
+  try {
+    await axios.post(`/api/v1/admin/forgot-password`, email);
+    alert("A password reset mail has been sent to your email address");
+    history.push("/");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {},
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
+  }
+};
+
+export const resetPassword = (password, history) => async (dispatch) => {
+  try {
+    await axios.post(`/api/v1/admin/reset-password`, password);
+    alert("password reset successful");
+    history.push("/login");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {},
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
+  }
+};

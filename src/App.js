@@ -23,6 +23,7 @@ import TrackVisitor from "./components/Admin/TrackVisitor";
 import TrackedVisitor from "./components/Admin/TrackedVisitor";
 import TrackVisitors from "./components/Admin/TrackVisitors";
 import TrackedVisitors from "./components/Admin/TrackedVisitors";
+import ResetPassword from "./components/Admin/ResetPassword";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -51,6 +52,8 @@ function App() {
       <Route exact path="/" component={Landing} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register-admin" component={RegisterAdmin} />
+      <Route exact path="/forgot-password" component={ForgotPassword} />
+      <Route path="/reset" component={ResetPassword} />
 
       {
         // private Routes
@@ -86,13 +89,6 @@ function App() {
           path="/tracked-visitors"
           component={TrackedVisitors}
         />
-        <SecuredRoute
-          exact
-          path="/forgot-password"
-          component={ForgotPassword}
-        />
-        {/* <Route path="/reset" component={ResetPassword} />
-         */}
       </Switch>
       <Footer />
     </Router>
