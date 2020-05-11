@@ -54,7 +54,7 @@ class TrackedVisitor extends Component {
         <td>{visitorLog.tag}</td>
 
         <td>{formatDate(visitorLog.timeIn)}</td>
-        <td>{formatDate(visitorLog.timeOut)}</td>
+        <td>{formatDate(visitorLog.timeOut || "active")}</td>
       </tr>
     ));
 

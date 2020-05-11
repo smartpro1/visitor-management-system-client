@@ -4,17 +4,36 @@ import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
 import { formatDate } from "./DateFormatter";
 import { fetchVisitorsLog } from "../../actions/adminActions";
+import Pagination from "./Pagination";
+import VisitorLogsDetails from "./VisitorLogsDetails";
 
 class MyVisitorsLogs extends Component {
-  componentDidMount = () => {
+  state = {
+    posts: [],
+    currentPage: 1,
+    postsPerPage: 5,
+    loading: false,
+  };
+
+  componentDidMount = async () => {
+    this.setState({ loading: true });
     const { fetchVisitorsLog } = this.props;
-    fetchVisitorsLog();
+    await fetchVisitorsLog();
+    const { visitorsLogs } = this.props;
+    this.setState({
+      posts: visitorsLogs,
+      loading: false,
+    });
   };
 
   render() {
-    const { visitorsLogs } = this.props;
+    const { posts, postsPerPage, currentPage, loading } = this.state;
 
-    if (visitorsLogs.length === 0) {
+    if (loading) {
+      return <h1>Loading...</h1>;
+    }
+
+    if (!posts || posts.length === 0) {
       return (
         <div className="row">
           <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
@@ -29,37 +48,38 @@ class MyVisitorsLogs extends Component {
         </div>
       );
     }
-    const loadLogs = visitorsLogs.map((log) => (
-      <tr key={log.id}>
-        <td>{log.id}</td>
-        <td>{log.whomToSee}</td>
-        <td>{log.purpose}</td>
-        <td>{log.tag}</td>
-        <td>{formatDate(log.timeIn)}</td>
-        <td>{formatDate(log.timeOut || "active")}</td>
-      </tr>
-    ));
+
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNum) => this.setState({ currentPage: pageNum });
+    const nextPage = () => {
+      if (currentPage + 1 > totalPages) return;
+      this.setState({ currentPage: currentPage + 1 });
+    };
+    const prevPage = () => {
+      if (currentPage - 1 < 1) return;
+      this.setState({ currentPage: currentPage - 1 });
+    };
 
     return (
       <div className="row">
-        <div className="col-md-2 bg-info sidebar">
+        <div className="col-md-2 sidebar">
           <Sidebar />
         </div>
         <div className="col-md-8 mx-auto mt-3">
           <h2 className="my-3 text-center">Visitors' Log</h2>
-          <table className="table table-hover ">
-            <thead className="thead-light">
-              <tr>
-                <th>id</th>
-                <th>Whom To See</th>
-                <th>Purpose</th>
-                <th>Tag</th>
-                <th>Date in</th>
-                <th>Date out</th>
-              </tr>
-            </thead>
-            <tbody>{loadLogs}</tbody>
-          </table>
+          <VisitorLogsDetails posts={currentPosts} loading={loading} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
         </div>
       </div>
     );

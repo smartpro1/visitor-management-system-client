@@ -24,7 +24,7 @@ class TrackedVisitors extends Component {
 
   render() {
     const { posts, postsPerPage, currentPage, loading } = this.state;
-    console.log(posts);
+
     if (!posts || posts.length < 1) {
       return (
         <div className="row">
@@ -59,7 +59,7 @@ class TrackedVisitors extends Component {
 
     return (
       <div className="row">
-        <div className="col-md-2 bg-info sidebar">
+        <div className="col-md-2 sidebar">
           <Sidebar />
         </div>
         <div className="col-md-8 table-responsive mx-auto mt-3">

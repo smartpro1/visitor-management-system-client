@@ -112,6 +112,10 @@ class Header extends Component {
               </NavLink>
             </li>
           </ul>
+          <Link className="nav-link" to="">
+            <i className="fas fa-user-circle mr-1" />{" "}
+            {adminCredentials.fullname}
+          </Link>
           <li className="nav-item" onClick={this.logout}>
             <Link className="nav-link" to="">
               Logout
@@ -124,7 +128,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg bg-info navbar-dark">
         <a className="navbar-brand text-center" href="/" id="vms-logo">
-          <i className="fas fa-coffee" /> Visitor Management System
+          <i className="fas fa-coffee" /> MyProjectManager
         </a>
 
         {

@@ -2,19 +2,37 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
-import { formatDate } from "./DateFormatter";
 import { fetchVisitors } from "../../actions/adminActions";
+import VisitorsDetails from "./VisitorsDetails";
+import Pagination from "./Pagination";
 
 class MyRegisteredVisitors extends Component {
-  componentDidMount = () => {
+  state = {
+    posts: [],
+    currentPage: 1,
+    postsPerPage: 5,
+    loading: false,
+  };
+
+  componentDidMount = async () => {
+    this.setState({ loading: true });
     const { fetchVisitors } = this.props;
-    fetchVisitors();
+    await fetchVisitors();
+    const { visitors } = this.props;
+    this.setState({
+      posts: visitors,
+      loading: false,
+    });
   };
 
   render() {
-    const { visitors } = this.props;
+    const { posts, postsPerPage, currentPage, loading } = this.state;
 
-    if (visitors.length === 0) {
+    if (loading) {
+      return <h1>Loading...</h1>;
+    }
+
+    if (!posts || posts.length === 0) {
       return (
         <div className="row">
           <div className="col-md-2 bg-info sidebar">
@@ -29,15 +47,22 @@ class MyRegisteredVisitors extends Component {
         </div>
       );
     }
-    const loadVisitors = visitors.map((visitor) => (
-      <tr key={visitor.id}>
-        <td>{visitor.id}</td>
-        <td>{visitor.fullname}</td>
-        <td>{visitor.address}</td>
-        <td>{visitor.sex}</td>
-        <td>{formatDate(visitor.created_At)}</td>
-      </tr>
-    ));
+
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const paginate = (pageNum) => this.setState({ currentPage: pageNum });
+    const nextPage = () => {
+      if (currentPage + 1 > totalPages) return;
+      this.setState({ currentPage: currentPage + 1 });
+    };
+    const prevPage = () => {
+      if (currentPage - 1 < 1) return;
+      this.setState({ currentPage: currentPage - 1 });
+    };
 
     return (
       <div className="row">
@@ -45,19 +70,15 @@ class MyRegisteredVisitors extends Component {
           <Sidebar />
         </div>
         <div className="col-md-8 table-responsive mx-auto mt-3">
-          <h2 className="my-3 text-center">Registered Visitors...</h2>
-          <table className="table table-hover ">
-            <thead className="thead-light">
-              <tr>
-                <th>id</th>
-                <th>fullname</th>
-                <th>address</th>
-                <th>sex</th>
-                <th>Date Created</th>
-              </tr>
-            </thead>
-            <tbody>{loadVisitors}</tbody>
-          </table>
+          <h2 className="my-3 text-center">Registered Visitors</h2>
+          <VisitorsDetails posts={currentPosts} loading={loading} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+            nextPage={nextPage}
+            prevPage={prevPage}
+          />
         </div>
       </div>
     );

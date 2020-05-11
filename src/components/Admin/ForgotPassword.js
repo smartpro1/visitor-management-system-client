@@ -41,14 +41,18 @@ class ForgotPassword extends Component {
 
   render() {
     const { email, errors, displaySpinner } = this.state;
+
     if (displaySpinner) {
       return (
-        <div className="text-center">
+        <div className="forgot-password text-center">
           <p className="spinner-border text-primary  my-3"></p>
           <p className="my-2">Processing...</p>
         </div>
       );
     }
+
+    console.log(errors.usernameorEmail);
+    console.log(errors);
 
     return (
       <div className="forgot-password mt-4">
@@ -64,7 +68,7 @@ class ForgotPassword extends Component {
                   <input
                     type="email"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid": errors.projectIdentifier,
+                      "is-invalid": errors.usernameorEmail,
                     })}
                     placeholder="Email Address"
                     name="email"
@@ -72,9 +76,9 @@ class ForgotPassword extends Component {
                     onChange={this.handleOnChange}
                     required
                   />
-                  {errors.projectIdentifier && (
+                  {errors.usernameorEmail && (
                     <div className="invalid-feedback">
-                      {errors.projectIdentifier}
+                      {errors.usernameorEmail}
                     </div>
                   )}
                 </div>
