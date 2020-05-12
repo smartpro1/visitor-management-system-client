@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Sidebar from "../Layout/Sidebar";
-import { formatDate } from "./DateFormatter";
 import { fetchVisitorsLog } from "../../actions/adminActions";
 import Pagination from "./Pagination";
 import VisitorLogsDetails from "./VisitorLogsDetails";

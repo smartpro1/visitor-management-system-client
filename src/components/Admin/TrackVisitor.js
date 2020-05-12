@@ -11,17 +11,8 @@ class TrackVisitor extends Component {
 
     this.state = {
       phone: "",
-      errors: "",
     };
   }
-
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.errors) {
-      this.setState({
-        errors: "invalid visitor tag",
-      });
-    }
-  };
 
   handleOnChange = (event) => {
     this.setState({
@@ -36,7 +27,9 @@ class TrackVisitor extends Component {
   };
 
   render() {
-    const { phone, errors } = this.state;
+    const { phone } = this.state;
+    const { errors } = this.props;
+
     return (
       <div>
         <div className="row">
@@ -58,7 +51,7 @@ class TrackVisitor extends Component {
                   onChange={this.handleOnChange}
                   required
                 />
-                {errors && (
+                {errors.invalidPhone && (
                   <div className="invalid-feedback">{errors.invalidPhone}</div>
                 )}
               </div>

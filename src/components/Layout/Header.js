@@ -101,16 +101,6 @@ class Header extends Component {
                 Track Visitors
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/charts"
-              >
-                Chart
-              </NavLink>
-            </li>
           </ul>
           <Link className="nav-link" to="">
             <i className="fas fa-user-circle mr-1" />{" "}
@@ -128,7 +118,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg bg-info navbar-dark">
         <a className="navbar-brand text-center" href="/" id="vms-logo">
-          <i className="fas fa-coffee" /> MyProjectManager
+          <i className="fas fa-coffee" /> VisitorManagementSystem
         </a>
 
         {

@@ -94,16 +94,6 @@ class Sidebar extends Component {
               Track Visitors
             </NavLink>
           </li>
-          <li className="nav-item ul-nav-link">
-            <NavLink
-              className="sidebar-a"
-              exact
-              activeClassName="active"
-              to="/charts"
-            >
-              Chart
-            </NavLink>
-          </li>
         </ul>
       </div>
     );

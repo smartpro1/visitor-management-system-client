@@ -13,7 +13,7 @@ import { setJwtToken } from "../securityUtils/SetJwtToken";
 export const loginAdmin = (adminCredentials, history) => async (dispatch) => {
   try {
     const res = await axios.post(`/api/v1/admin/login`, adminCredentials);
-    console.log(res);
+
     //extract token from res.data
     const { token } = res.data;
     // store the token in local storage
@@ -65,7 +65,7 @@ export const registerVisitor = (visitorDetails, history) => async (
 ) => {
   try {
     await axios.post(`/api/v1/visitors/register-visitor`, visitorDetails);
-
+    alert("visitor successfully registered");
     history.push("/visitors-log");
   } catch (err) {
     dispatch({
@@ -113,6 +113,7 @@ export const signoutVisitor = (tag, history) => async (dispatch) => {
       type: GET_ERRORS,
       payload: {},
     });
+    alert("visitor successfully signed out");
     history.push("/visitors-log");
   } catch (err) {
     dispatch({
@@ -133,7 +134,7 @@ export const trackVisitor = (phone, history) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
-      payload: err,
+      payload: err.response.data,
     });
   }
 };
