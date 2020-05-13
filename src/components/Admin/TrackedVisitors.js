@@ -31,10 +31,13 @@ class TrackedVisitors extends Component {
           <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-8 table-responsive mx-auto mt-3">
-            <h2 className="my-3 text-center">Tracked Visitors</h2>
+          <div className="container col-md-8 m-auto">
+            <h2 className="my-4 text-center">Tracked Visitors</h2>
             <div className="Jumbotron  text-center">
-              <p className="alert alert-info"> No result found</p>
+              <p className="alert alert-info no-result-found">
+                {" "}
+                No result found
+              </p>
             </div>
           </div>
         </div>

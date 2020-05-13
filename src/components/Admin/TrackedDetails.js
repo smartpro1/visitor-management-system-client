@@ -5,7 +5,12 @@ export default class TrackedDetails extends Component {
   render() {
     const { posts, loading } = this.props;
     if (loading) {
-      return <h2>Loading...</h2>;
+      return (
+        <div className="forgot-password text-center mt-4 loading">
+          <p className="spinner-border text-primary  my-3"></p>
+          <p className="my-2">Loading...</p>
+        </div>
+      );
     }
     return (
       <div>

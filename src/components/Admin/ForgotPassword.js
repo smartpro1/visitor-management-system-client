@@ -44,15 +44,12 @@ class ForgotPassword extends Component {
 
     if (displaySpinner) {
       return (
-        <div className="forgot-password text-center">
+        <div className="forgot-password text-center mt-4 loading">
           <p className="spinner-border text-primary  my-3"></p>
           <p className="my-2">Processing...</p>
         </div>
       );
     }
-
-    console.log(errors.usernameorEmail);
-    console.log(errors);
 
     return (
       <div className="forgot-password mt-4">

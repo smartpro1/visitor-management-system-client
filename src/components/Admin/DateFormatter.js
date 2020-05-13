@@ -4,5 +4,5 @@ export const formatDate = (date) => {
 
   return `${formatDate.getFullYear()}-${
     formatDate.getMonth() + 1
-  }-${formatDate.getDate()} ${formatDate.getHours()}: ${formatDate.getMinutes()}`;
+  }-${formatDate.getDate()} ${formatDate.getHours()}:${formatDate.getMinutes()}`;
 };

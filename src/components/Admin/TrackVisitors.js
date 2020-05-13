@@ -14,14 +14,6 @@ class TrackVisitors extends Component {
     };
   }
 
-  //   componentWillReceiveProps = (nextProps) => {
-  //     if (nextProps.errors) {
-  //       this.setState({
-  //         errors: "invalid date search",
-  //       });
-  //     }
-  //   };
-
   handleOnChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,

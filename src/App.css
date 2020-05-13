@@ -37,6 +37,18 @@
   }
 } */
 
+div.info-cont {
+  height: 50px;
+  margin: 0;
+  position: absolute;
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* text-align: center;
+  margin-top: 50px !important; */
+}
+
 .sidebar-a:link,
 .sidebar-a:visited {
   display: block;
@@ -67,8 +79,9 @@ ul.dashbord-list-item li a:hover {
 .login,
 .landing,
 .forgot-password,
-.reset-password {
-  min-height: 80vh;
+.reset-password,
+.loading {
+  min-height: 80vh !important;
 }
 
 .register-admin {
@@ -122,11 +135,17 @@ footer {
     min-height: 90vh;
   }
 
-  div.info-cont {
+  /* div.info-cont {
     height: 50px;
-    text-align: center;
-    margin-top: 200px !important;
-  }
+    margin: 0;
+    position: absolute;
+    top: 50% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* text-align: center;
+    margin-top: 50px !important; 
+  } 
+  */
 
   ul.dashbord-list-item {
     margin: 0;
@@ -157,6 +176,19 @@ footer {
 @media screen and (max-width: 767px) {
   form {
     margin: 0 30px;
+  }
+
+  /* .jumbo-no-result {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+  .no-result-found {
+    max-width: 300px;
+    margin: 20px auto;
   }
 }
 

@@ -24,6 +24,7 @@ class TrackedVisitor extends Component {
       );
     }
 
+    // if trackedVisitor is an empty object
     if (
       !trackedVisitor ||
       (Object.keys(trackedVisitor).length === 0 &&
@@ -35,7 +36,7 @@ class TrackedVisitor extends Component {
             <Sidebar />
           </div>
           <div
-            className="container alert alert-info text-center mt-5 col-md-4 info-cont "
+            className="container alert alert-info col-md-4 info-cont "
             role="alert"
           >
             You have no tracked visitor yet.
@@ -50,7 +51,7 @@ class TrackedVisitor extends Component {
       <tr key={visitorLog.id}>
         <td>{visitorLog.id}</td>
         <td>{visitorLog.whomToSee}</td>
-        <td>{visitorLog.asset || "NIL"} </td>
+        <td>{visitorLog.assetLog.assets || "NIL"} </td>
         <td>{visitorLog.tag}</td>
 
         <td>{formatDate(visitorLog.timeIn)}</td>
@@ -78,7 +79,7 @@ class TrackedVisitor extends Component {
                 <th>Asset</th>
                 <th>Tag</th>
                 <th>Date Time In</th>
-                <th>Date Date Time Out</th>
+                <th>Date Time Out</th>
               </tr>
             </thead>
             <tbody>{loadVisitorDetails}</tbody>

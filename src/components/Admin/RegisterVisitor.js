@@ -49,7 +49,6 @@ class RegisterVisitor extends Component {
       assets,
     };
     const { registerVisitor, history } = this.props;
-    console.log(visitorDetails);
     registerVisitor(visitorDetails, history);
   };
 
@@ -65,6 +64,7 @@ class RegisterVisitor extends Component {
     } = this.state;
 
     const { errors } = this.props;
+    console.log(errors.invalidPhone);
 
     return (
       <div className="wrapper">
@@ -99,7 +99,7 @@ class RegisterVisitor extends Component {
                   <input
                     type="text"
                     className={classnames("form-control", {
-                      "is-invalid": errors.phone,
+                      "is-invalid": errors.phone || errors.invalidPhone,
                     })}
                     id="phone"
                     placeholder="e.g +2347349712638 or 07349712638"
@@ -110,6 +110,11 @@ class RegisterVisitor extends Component {
                   />
                   {errors.phone && (
                     <div className="invalid-feedback">{errors.phone}</div>
+                  )}
+                  {errors.invalidPhone && (
+                    <div className="invalid-feedback">
+                      {errors.invalidPhone}
+                    </div>
                   )}
                 </div>
               </div>

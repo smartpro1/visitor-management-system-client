@@ -52,7 +52,9 @@ class Chart extends Component {
 
   componentDidMount = async () => {
     const res = await axios.get(`/api/v1/visitors/todays-logs`);
+    console.log(res);
     console.log(res.data);
+    if (res.data == "No result found") return;
     const resData = res.data;
     const newChartData = this.state.chartData;
     if (resData.length > 0) {

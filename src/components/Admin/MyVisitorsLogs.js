@@ -29,7 +29,12 @@ class MyVisitorsLogs extends Component {
     const { posts, postsPerPage, currentPage, loading } = this.state;
 
     if (loading) {
-      return <h1>Loading...</h1>;
+      return (
+        <div className="forgot-password text-center mt-4 loading">
+          <p className="spinner-border text-primary  my-3"></p>
+          <p className="my-2">Processing...</p>
+        </div>
+      );
     }
 
     if (!posts || posts.length === 0) {

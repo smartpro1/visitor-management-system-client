@@ -68,6 +68,7 @@ export const registerVisitor = (visitorDetails, history) => async (
     alert("visitor successfully registered");
     history.push("/visitors-log");
   } catch (err) {
+    console.log(err.response);
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data,
