@@ -11,8 +11,6 @@ export default class Pagination extends Component {
     } = this.props;
     const pageNumbers = [];
 
-    // if (totalPosts <= postsPerPage) return;
-
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
       pageNumbers.push(i);
     }

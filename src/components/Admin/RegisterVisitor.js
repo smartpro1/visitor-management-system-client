@@ -64,7 +64,6 @@ class RegisterVisitor extends Component {
     } = this.state;
 
     const { errors } = this.props;
-    console.log(errors.invalidPhone);
 
     return (
       <div className="wrapper">

@@ -52,8 +52,6 @@ class Chart extends Component {
 
   componentDidMount = async () => {
     const res = await axios.get(`/api/v1/visitors/todays-logs`);
-    console.log(res);
-    console.log(res.data);
     if (res.data == "No result found") return;
     const resData = res.data;
     const newChartData = this.state.chartData;
@@ -71,7 +69,7 @@ class Chart extends Component {
     const { isData } = this.state;
     if (!isData) {
       return (
-        <div className="Jumbotron  text-center">
+        <div className="Jumbotron  text-center info-cont">
           <p className="alert alert-info">
             {" "}
             You have no logged visitor today so chart cannot be drawn
