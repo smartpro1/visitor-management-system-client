@@ -17,8 +17,19 @@ class RegisterVisitor extends Component {
       whomToSee: "",
       purpose: "",
       assets: "",
+      isLoading: false,
+      errors: {},
     };
   }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+        isLoading: false,
+      });
+    }
+  };
 
   handleOnChange = (event) => {
     this.setState({
@@ -28,7 +39,7 @@ class RegisterVisitor extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-
+    this.setState({ isLoading: true });
     const {
       fullname,
       phone,
@@ -61,9 +72,18 @@ class RegisterVisitor extends Component {
       whomToSee,
       purpose,
       assets,
+      isLoading,
+      errors,
     } = this.state;
 
-    const { errors } = this.props;
+    if (isLoading) {
+      return (
+        <div className="forgot-password text-center mt-4 loading">
+          <p className="spinner-border text-primary  my-3"></p>
+          <p className="my-2">Processing...</p>
+        </div>
+      );
+    }
 
     return (
       <div className="wrapper">

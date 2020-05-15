@@ -29,7 +29,6 @@ class Chart extends Component {
   }
 
   dateHoursExtractor = (datesArr) => {
-    console.log(datesArr.length);
     const dateHours = [0, 0, 0, 0, 0];
     for (let i = 0; i < datesArr.length; i++) {
       let timeIn = new Date(datesArr[i].timeIn);

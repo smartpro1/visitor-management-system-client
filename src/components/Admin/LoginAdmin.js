@@ -11,8 +11,19 @@ class LoginAdmin extends Component {
     this.state = {
       usernameOrEmail: "",
       password: "",
+      isLoading: false,
+      errors: {},
     };
   }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+        isLoading: false,
+      });
+    }
+  };
 
   handleOnChange = (event) => {
     this.setState({
@@ -22,6 +33,7 @@ class LoginAdmin extends Component {
 
   handleLogin = (event) => {
     event.preventDefault();
+    this.setState({ isLoading: true });
     const { usernameOrEmail, password } = this.state;
     const adminCredentials = { usernameOrEmail, password };
     const { loginAdmin, history } = this.props;
@@ -29,8 +41,17 @@ class LoginAdmin extends Component {
   };
 
   render() {
-    const { usernameOrEmail, password } = this.state;
-    const { errors } = this.props;
+    const { usernameOrEmail, password, isLoading, errors } = this.state;
+
+    if (isLoading) {
+      return (
+        <div className="text-center mt-4 loading">
+          <p className="spinner-border text-primary  my-3"></p>
+          <p className="my-2">Processing...</p>
+        </div>
+      );
+    }
+
     return (
       <div className="login">
         <div className="container">

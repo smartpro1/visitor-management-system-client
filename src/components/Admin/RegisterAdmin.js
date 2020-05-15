@@ -15,6 +15,7 @@ class RegisterAdmin extends Component {
       password: "",
       confirmPassword: "",
       errors: {},
+      isLoading: false,
     };
   }
 
@@ -22,12 +23,14 @@ class RegisterAdmin extends Component {
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors,
+        isLoading: false,
       });
     }
   };
 
   handleOnSubmit = (event) => {
     event.preventDefault();
+    this.setState({ isLoading: true });
     const { fullname, username, email, password, confirmPassword } = this.state;
     const newAdmin = {
       fullname,
@@ -54,7 +57,17 @@ class RegisterAdmin extends Component {
       password,
       confirmPassword,
       errors,
+      isLoading,
     } = this.state;
+
+    if (isLoading) {
+      return (
+        <div className="forgot-password text-center mt-4 loading">
+          <p className="spinner-border text-primary  my-3"></p>
+          <p className="my-2">Processing...</p>
+        </div>
+      );
+    }
 
     return (
       <div className="register-admin">
