@@ -81,8 +81,9 @@ ul.dashbord-list-item li a:hover {
   padding-top: 70px;
 }
 
-p.lead {
+.lead-landing {
   color: white;
+  font-size: 18px;
 }
 
 .btn-landing {
@@ -118,6 +119,7 @@ p.lead {
     font-size: 60px;
     margin-top: 40px;
   }
+  .lead-landing,
   p.lead {
     font-size: 17px;
   }
@@ -191,6 +193,7 @@ p.lead {
     font-size: 45px;
     margin-top: 35px;
   }
+  .lead-landing,
   p.lead {
     font-size: 16px;
     margin-top: 30px;
@@ -212,6 +215,7 @@ p.lead {
     font-size: 40px;
     margin-top: 30px;
   }
+  .lead-landing,
   p.lead {
     font-size: 15px;
   }
@@ -227,6 +231,7 @@ p.lead {
     font-size: 33px;
     margin-top: 25px;
   }
+  .lead-landing,
   p.lead {
     font-size: 14px;
   }
@@ -251,6 +256,7 @@ p.lead {
     margin-top: 20px;
     margin-bottom: 15px;
   }
+  .lead-landing,
   p.lead {
     font-size: 13px;
   }
