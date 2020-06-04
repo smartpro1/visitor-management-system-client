@@ -37,7 +37,9 @@ class TrackVisitor extends Component {
             <Sidebar />
           </div>
           <div className="container col-md-6 mt-4">
-            <h1 className="text-center my-4">Enter Visitor's Phone number</h1>
+            <h1 className="header-h1 text-center my-4">
+              Enter visitor's phone number
+            </h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input

@@ -92,7 +92,7 @@ class RegisterVisitor extends Component {
             <Sidebar />
           </div>
           <div className="col-md-8 mx-auto">
-            <h1 className="display-4 text-center my-4">Register Visitor</h1>
+            <h1 className="header-h1 text-center my-4">Register Visitor</h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-row">
                 <div className="form-group col-md-6">

@@ -48,7 +48,7 @@ class ResetPassword extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center mt-5">Reset Password</h1>
+              <h1 className="header-h1">Reset Password</h1>
               <p className="lead text-center">Make sure both passwords match</p>
               <form onSubmit={this.handleOnSubmit}>
                 <div className="form-group">

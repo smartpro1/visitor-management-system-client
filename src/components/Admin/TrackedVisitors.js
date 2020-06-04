@@ -32,7 +32,7 @@ class TrackedVisitors extends Component {
             <Sidebar />
           </div>
           <div className="container col-md-8 m-auto">
-            <h2 className="my-4 text-center">Tracked Visitors</h2>
+            <h1 className="header-h1 my-4 text-center">Tracked Visitors</h1>
             <div className="Jumbotron  text-center">
               <p className="alert alert-info no-result-found">
                 {" "}

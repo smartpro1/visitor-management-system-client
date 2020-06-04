@@ -9,7 +9,7 @@ class Landing extends Component {
 
     let signUp = (
       <div>
-        <h1 className="display-3 mb-4">
+        <h1 className="header-landing">
           Hi, I'm your efficient visitor management system
         </h1>
         <p className="lead">
@@ -21,12 +21,15 @@ class Landing extends Component {
 
         <Link
           to="/register-admin"
-          className="btn btn-outline-info btn-lg  mr-2"
+          className="btn btn-outline-info btn-lg  mr-2 btn-landing"
         >
           Register
         </Link>
 
-        <Link to="/login" className="btn btn-lg btn-outline-success mr-2">
+        <Link
+          to="/login"
+          className="btn btn-lg btn-outline-success mr-2 btn-landing"
+        >
           Login
         </Link>
       </div>
@@ -45,7 +48,7 @@ class Landing extends Component {
       );
     }
     return (
-      <div className="landing mt-4">
+      <div className="landing ">
         <div className="light-overlay landing-inner text-dark">
           <div className="container">
             <div className="row">

@@ -45,7 +45,7 @@ class SignoutVisitor extends Component {
             <Sidebar />
           </div>
           <div className="col-md-6 mx-auto mt-5">
-            <h1 className="text-center my-4">Enter Visitor's Tag</h1>
+            <h1 className="header-h1 text-center my-4">Enter Visitor's Tag</h1>
             <form onSubmit={this.handleOnSubmit}>
               <div className="form-group">
                 <input

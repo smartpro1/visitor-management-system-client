@@ -71,7 +71,7 @@ class Chart extends Component {
         <div className="Jumbotron  text-center info-cont">
           <p className="alert alert-info">
             {" "}
-            You have no logged visitor today so chart cannot be drawn
+            You have no logged visitor today so chart cannot be drawn...
           </p>
         </div>
       );

@@ -90,7 +90,7 @@ function App() {
           component={TrackedVisitors}
         />
       </Switch>
-      <Footer />
+      {/*<Footer />*/}
     </Router>
   );
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutAdmin } from "../../actions/adminActions";
@@ -32,74 +32,39 @@ class Header extends Component {
         <ul className="navbar-nav ml-auto">
           <ul className="navbar-nav sidebar-header-ul">
             <li className="nav-item ul-nav-link">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/dashboard"
-              >
+              <Link className="sidebar-a" exact to="/dashboard">
                 Dashboard
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item ul-nav-link">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/register-visitor"
-              >
+              <Link className="sidebar-a" exact to="/register-visitor">
                 Register Visitor
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item ">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/signout-visitor"
-              >
+              <Link className="sidebar-a" exact to="/signout-visitor">
                 Signout Visitor
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/registered-visitors"
-              >
+              <Link className="sidebar-a" exact to="/registered-visitors">
                 My Visitors
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item ">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/visitors-log"
-              >
+              <Link className="sidebar-a" exact to="/visitors-log">
                 My Visitors Log
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/track-visitor"
-              >
+              <Link className="sidebar-a" exact to="/track-visitor">
                 Track Visitor
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
-                className="sidebar-a"
-                exact
-                activeClassName="active"
-                to="/track-visitors"
-              >
+              <Link className="sidebar-a" exact to="/track-visitors">
                 Track Visitors
-              </NavLink>
+              </Link>
             </li>
           </ul>
           <Link className="nav-link" to="">

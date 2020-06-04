@@ -65,7 +65,7 @@ class TrackedVisitor extends Component {
           <Sidebar />
         </div>
         <div className="col-md-8 table-responsive mx-auto mt-3">
-          <h2 className="my-3 text-center">Tracked Visitor</h2>
+          <h1 className="header-h1 my-3 text-center">Tracked Visitor</h1>
           <p>
             id: <strong>{trackedVisitor.id}</strong> &nbsp; name:{" "}
             <strong>{trackedVisitor.fullname}</strong> &nbsp; phone:{" "}

@@ -74,7 +74,7 @@ class MyRegisteredVisitors extends Component {
         <div className="col-md-2 d-none d-sm-block d-xs-block sidebar">
           <Sidebar />
         </div>
-        <div className="col-md-8 table-responsive mx-auto mt-3">
+        <div className="col-md-8 mx-auto mt-3">
           <h2 className="my-3 text-center">Registered Visitors</h2>
           <VisitorsDetails posts={currentPosts} loading={loading} />
           <Pagination

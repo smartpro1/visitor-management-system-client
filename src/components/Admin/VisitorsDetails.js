@@ -13,8 +13,8 @@ class VisitorsDetails extends Component {
       );
     }
     return (
-      <div>
-        <table className="table table-hover ">
+      <div className="table-responsive">
+        <table className="table table-hover">
           <thead className="thead-light">
             <tr>
               <th>id</th>

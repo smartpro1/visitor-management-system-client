@@ -16,7 +16,7 @@ export default class Pagination extends Component {
     }
 
     return (
-      <nav>
+      <nav id="pagination">
         <ul className="pagination">
           <li className="page-item">
             <a onClick={() => prevPage()} className="page-link" href="#">

@@ -1,52 +1,26 @@
-/* .App {
-  text-align: center;
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-landing,
+.header-h1 {
+  font-family: serif;
+  font-size: 60px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-h1 {
+  margin-top: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+p.lead {
+  font-size: 18px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 div.info-cont {
-  height: 50px;
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  /* text-align: center;
-  margin-top: 50px !important; */
+  /* height: 50px; */
+  margin: 100px auto;
+  width: 80%;
 }
 
 .sidebar-a:link,
@@ -84,6 +58,14 @@ ul.dashbord-list-item li a:hover {
   min-height: 80vh !important;
 }
 
+.landing {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://www.daummuseum.org/wp-content/uploads/2014/10/visitor-background-medium.jpg");
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://thumbs.dreamstime.com/z/art-museum-anstract-painting-visitors-background-round-illustration-people-abstract-114884738.jpg"); */
+  background-size: cover;
+}
+
 .loading {
   position: relative;
   top: 120px;
@@ -91,15 +73,20 @@ ul.dashbord-list-item li a:hover {
 
 .register-admin {
   min-height: 80vh;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
-footer {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 0;
-  /* height: 100px; */
-  overflow: hidden;
+.header-landing {
+  color: white;
+  padding-top: 70px;
+}
+
+p.lead {
+  color: white;
+}
+
+.btn-landing {
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 991px) {
@@ -122,11 +109,21 @@ footer {
     margin-top: 100px;
   }
 
-  footer {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 100px;
+  .header-landing {
+    font-size: 60px;
+    margin-top: 60px;
+  }
+
+  .header-h1 {
+    font-size: 60px;
+    margin-top: 40px;
+  }
+  p.lead {
+    font-size: 17px;
+  }
+
+  .active {
+    background: none;
   }
 }
 
@@ -134,23 +131,9 @@ footer {
   div.sidebar {
     margin: 0;
     padding: 0;
-    /* background: #000; */
-    /* background: #5bc0de; */
     background: #5bc0de !important;
     min-height: 90vh;
   }
-
-  /* div.info-cont {
-    height: 50px;
-    margin: 0;
-    position: absolute;
-    top: 50% !important;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* text-align: center;
-    margin-top: 50px !important; 
-  } 
-  */
 
   ul.dashbord-list-item {
     margin: 0;
@@ -179,21 +162,73 @@ footer {
 }
 
 @media screen and (max-width: 767px) {
+  table {
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #pagination {
+    margin: 30px auto;
+    width: 50%;
+  }
+
   form {
     margin: 0 30px;
   }
 
-  /* .jumbo-no-result {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  } */
-
   .no-result-found {
     max-width: 300px;
     margin: 20px auto;
+  }
+
+  .header-landing {
+    font-size: 45px;
+    margin-top: 50px;
+  }
+
+  .header-h1 {
+    font-size: 45px;
+    margin-top: 35px;
+  }
+  p.lead {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  .small {
+    width: 50%;
+    margin: 30px;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .header-landing {
+    font-size: 40px;
+    margin-top: 45px;
+  }
+
+  .header-h1 {
+    font-size: 40px;
+    margin-top: 30px;
+  }
+  p.lead {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .header-landing {
+    font-size: 33px;
+    margin-top: 35px;
+  }
+
+  .header-h1 {
+    font-size: 33px;
+    margin-top: 25px;
+  }
+  p.lead {
+    font-size: 14px;
   }
 }
 
@@ -202,8 +237,46 @@ footer {
     font-size: 14px;
     font-weight: bold;
   }
+}
 
-  h1 {
+@media screen and (max-width: 400px) {
+  .header-landing {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+
+  .header-h1 {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  p.lead {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 344px) {
+  .header-landing {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  .header-h1 {
+    font-size: 28px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 302px) {
+  #vms-logo {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .header-landing,
+  h1.header-h1 {
     font-size: 18px;
   }
 }

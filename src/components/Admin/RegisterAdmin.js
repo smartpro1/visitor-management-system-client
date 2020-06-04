@@ -74,7 +74,7 @@ class RegisterAdmin extends Component {
         <div className="container mt-5">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Admin Sign Up</h1>
+              <h1 className="header-h1 text-center">Admin Sign Up</h1>
               <p className="lead text-center">Create Admin Account</p>
               <form onSubmit={this.handleOnSubmit}>
                 <div className="form-group">

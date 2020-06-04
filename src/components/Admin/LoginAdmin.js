@@ -57,7 +57,7 @@ class LoginAdmin extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center my-4">Log In</h1>
+              <h1 className="header-h1 text-center my-4">Log In</h1>
               <form onSubmit={this.handleLogin}>
                 <div className="form-group">
                   <input
